@@ -5,26 +5,39 @@
     box-sizing: border-box;
 }
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   
+        /* font-family: "Press Start 2P", serif;
+        font-weight: 400;
+        font-style: normal; */
+      
+      
     justify-content: center;
     align-items: flex-start;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #320230;
 }
 
 .gamename {
-    font-size: 15px;
+    font-size: 7px;
     margin-bottom: 10px;
-   
+    font-family: "Press Start 2P", serif;
     padding: 20px;
-    font-weight:bolder ;
+    color: greenyellow;
+    
+    
     
 }
 
 .gamename p{
  letter-spacing: 26px;
- padding: 2px;
+ padding-top: 8px;
+ font-family: "Press Start 2P", serif;
+ font-size: 10px;
+ font-weight: 100;
+ font-style: normal;
+ color: whitesmoke;
 }
+
 
 
 .colororange{
@@ -57,7 +70,7 @@ body {
 .container {
     display: flex;
     width: 100%; 
-    height: 100vh; 
+
     justify-self: center;
     
 }
@@ -68,6 +81,11 @@ body {
     margin-top: 30px;
   
     
+}
+
+.right-column {
+    width: 20%;
+    justify-items: center;
 }
 
 
@@ -97,57 +115,68 @@ body {
 .kid{
     width: 100px;
     padding-top: 40px;
+    margin-left: 20px;
    
 }
 
 .middle-column {
-    flex: 2;  
-   background-color: rgb(236, 248, 212);
+    flex: 3;  
+   background-color: rgb(236, 248, 212,);
      padding: 20px;
      border-radius: 20px;
      justify-content: center;
      justify-items: center;
+    
   
 }
 
 .content {
     text-align: center;
-    font-size: 18px;
+    /* font-size: 20px; */
+    width: 100%;
 }
 
 
 .content h1 {
+    padding-top: 25px;
+    font-size: 25px;
     margin-bottom: 20px;
     color: red;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Press Start 2P", serif;
 }
 
 .rule{
-    color: rgb(120, 4, 4);
+    color: rgb(244, 244, 244);
     justify-self: center;
-    width: 50%;
+    width: 70%;
+    font-size: 15px;
+    font-family: "Press Start 2P", serif;
     
 }
 
 .score {
+    font-size: 15px;
+    font-family: "Press Start 2P", serif;
     text-align: center;
+    color: white;
 }
 
 .score p {
     font-size: 20px;
+    
 }
 .score h1 {
     font-size: 60px;
+    padding-top: 10px;
 }
 
 .guessresult {
-    font-size: 40px;  
+    font-size: 25px;  
     text-align: center;
-    color: rgb(60, 60, 60);
-    
- 
+    color: rgb(255, 255, 255);
     font-weight: 600;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Press Start 2P", serif;
+    padding-top: 20px;
 }
 .gamespace{
     display: flex;
@@ -176,6 +205,7 @@ body {
 
 .button-grid {
     display: grid;
+    margin: auto;
     grid-template-columns: repeat(3, 150px);
     gap: 10px;
     margin-bottom: 20px;
@@ -185,16 +215,18 @@ body {
 
 
 .reset {
-    grid-column: span 3;
-    color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   
+    /* grid-column: span 3; */
+    color: rgb(255, 255, 255);
+
+    font-family: "Press Start 2P", serif;
     font-weight: bold;
-    background-color: rgb(39, 38, 38);
+    background-color: rgb(207, 3, 3);
     padding: 15px;
-    font-size: 18px;
+    font-size: 15px;
     text-align: center;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
     padding: 20px;
     margin-bottom: 20px;
@@ -273,6 +305,13 @@ body {
         display: flex;
     }
 
+    .right-column {
+        width: 20%;
+        justify-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+
     .middle-column {
         flex: 1;  
     }
@@ -291,11 +330,13 @@ body {
 
     .gamename p{
         padding-left: 30px;
+        color: whitesmoke;
     }
 
     .guessresult{
         width: 100%;
         font-size: 25px;
+       
         
      
     }
@@ -320,6 +361,9 @@ body {
     
 }
 
+.right-column{
+    display: grid;
+}
 
 
 .button-grid {
@@ -349,9 +393,52 @@ body {
     
 }
 
-
+.reset{
+  
 
 }
 
 
 
+}
+
+    
+.left-column {
+    flex: 1;  
+    margin-top: 20px;
+    gap: 20px;
+   
+    
+}
+
+
+.score  {
+   padding-right: 20px;
+
+}
+
+.score  h1 {
+   font-size: 40px;
+}
+
+.guessresult {
+    font-size: 19px;  
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-family: "Press Start 2P", serif;
+}
+
+.content h1 {
+    padding-top: 25px;
+    width: 200px;
+    margin-bottom: 20px;
+    color: red;
+    font-family: "Press Start 2P", serif;
+}
+
+.rule{
+    
+  padding-bottom: 30px;
+    
+}
