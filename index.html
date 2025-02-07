@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ColorGame</title>
+</head>
+<body>
+    <div class="gamename">
+        <h1 class="">C  
+            <span class="colorred">O
+            </span>
+            <span class="colororange">L
+            </span>
+            <span class="colorpurple">O
+            </span>
+            <span class="colorgreen">R
+            </span>
+        </h1>
+
+        <p>GAME</p>
+        
+ 
+           
+    
+    </div>
+
+
+    <div class="guessresult" data-testid="gameStatus">
+        <p>Guess the color!</p>
+    </div>
+
+
+
+    <div class="container">
+        <!-- Left Column -->
+        <div class="left-column">
+            <div class="score" data-testid="score">
+                <p>SCORE: </p>
+                <h1 class="text" >0</h1>
+            </div>
+        
+            <div class="content">
+              <img class="kid" src="./kid.png" >
+            </div>
+        </div>
+
+        <!-- Middle Column  -->
+        <div class="middle-column">
+            <div class="content">
+
+
+            
+                <div class="colorfield">
+                    <div class="target" id="targetColor" data-testid="colorBox">Target color</div>
+                
+                </div>
+                
+                <div class="gamespace">
+            
+                    <div class="button-grid">
+                        <button class="btn btn-1" data-color="#ff5733" data-testid="colorOption">Pick Me</button>
+                        <button class="btn btn-2" data-color="#33ff57" data-testid="colorOption">Pick Me</button>
+                        <button class="btn btn-3" data-color="#3357ff" data-testid="colorOption">Pick Me</button>
+                        <button class="btn btn-4" data-color="#ff33a1" data-testid="colorOption">Pick Me</button>
+                        <button class="btn btn-5" data-color="#f0e130" data-testid="colorOption">Pick Me</button>
+                        <button class="btn btn-6" data-color="#9933ff" data-testid="colorOption">Pick Me</button>
+                        <button class="reset" data-testid="newGameButton">NEW GAME</button>
+                    </div>
+                </div>
+          
+
+
+
+
+            </div>
+        </div> 
+        
+        <!-- Right Column -->
+   <div class="right-column">
+            <div class="content">
+                <h1 >Rule</h1>
+                <p class="rule" data-testid="gameInstructions">Guess the color that matches the target color.</p>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <script>
+        const buttons = document.querySelectorAll('.btn');
+        const targetColorDiv = document.getElementById('targetColor');
+        const scoreText = document.querySelector('.text');
+        const guessResultText = document.querySelector('.guessresult p');
+        const resetButton = document.querySelector('.reset');
+        let score = 0;
+        let targetColor;
+
+       
+        function getRandomColor() {
+            const colors = ['#ff5733', '#33ff57', '#3357ff', '#ff33a1', '#f0e130', '#9933ff'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+  
+        function updateTargetColor() {
+            targetColor = getRandomColor();
+            targetColorDiv.style.backgroundColor = targetColor;
+      
+        }
+
+        function handleGuess(event) {
+            const guessedColor = event.target.dataset.color;
+           
+
+            if (guessedColor === targetColor) {
+                guessResultText.textContent = "Yah! You Guessed Right! 🥳🎉";
+                guessResultText.classList.add('celebrate');  
+                guessResultText.classList.remove('wrong-answer'); 
+                
+                score += 10;  
+            } else {
+                guessResultText.textContent = "Wrong! but try again! 😢😩";
+                guessResultText.classList.remove('wrong-answer');
+                void guessResultText.offsetWidth;  
+                guessResultText.classList.add('wrong-answer');
+                guessResultText.classList.remove('celebrate');
+                score = Math.max(0, score - 0);
+ 
+            }
+            scoreText.textContent = score;  
+            updateTargetColor();  
+        }
+
+
+        buttons.forEach(button => {
+            button.addEventListener('click', handleGuess);
+        });
+
+
+        resetButton.addEventListener('click', () => {
+          score = 0;
+            scoreText.textContent = score;
+            updateTargetColor();
+            guessResultText.textContent = "Guess the color!";
+            guessResultText.classList.remove('celebrate', 'wrong-answer'); 
+        });
+
+ 
+        updateTargetColor();
+    </script>
+</body>
+</html>
+
